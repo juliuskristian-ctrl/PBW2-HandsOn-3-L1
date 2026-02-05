@@ -1,0 +1,31 @@
+1. Mengapa session cookie (tanpa Max-Age) berguna untuk login?
+Jawaban : 
+    Karena session cookie itu sangat Sangat aman untuk perangkat publik (seperti di warnet atau perpustakaan). Pengguna tidak perlu takut lupa logout, karena begitu jendela browser ditutup, akses mereka langsung terputus.
+
+2. Jika kamu membuat aplikasi e-commerce, atribut apa yang akan kamu gunakan untuk cookie session ID? Jelaskan alasannya.
+Jawaban : 
+    1. HttpOnly : alasannya  untuk mencegah hacker mencuri session ID lewat script jahat.
+    2. Secure : alasannya untuk memastikan cookie hanya dikirim lewat koneksi terenkripsi (HTTPS).
+    3. Max-Age : alasannya untuk memberi durasi tertentu (misal 7 hari) supaya keranjang belanja tidak hilang jika browser tertutup tidak sengaja.
+
+3. **Apa risiko keamanan jika cookie session TIDAK menggunakan HttpOnly?**
+Jawaban :
+Risiko utamanya adalah Cross-Site Scripting (XSS).
+Jika ada celah di website, hacker bisa menjalankan kode JavaScript untuk mengambil isi cookie kita akibatnya Hacker bisa menyalin Session ID kita ke browser mereka dan masuk ke akun kita tanpa perlu tahu password kita.
+
+4. **Kapan sebaiknya menggunakan Expires vs Max-Age?**
+Jawaban :
+    Max-Age: Gunakan ini untuk hampir semua kebutuhan modern. Ia menggunakan hitungan detik (misal: 3600 untuk 1 jam). Lebih presisi karena tidak peduli jika jam di komputer user salah.
+    Expires: Gunakan jika kta harus mendukung browser sangat jadul (seperti Internet Explorer lama). Ia menggunakan format tanggal/waktu spesifik.
+
+5. **Apa yang terjadi jika Domain cookie di-set ke `.example.com`?**
+Jawaban :
+    Artinya cookie tersebut menjadi "Satu untuk Semua". Cookie tidak hanya bisa dibaca oleh example.com, tapi juga semua subdomain di bawahnya, seperti:
+
+    blog.example.com
+
+    shop.example.com
+
+    payment.example.com
+
+    Ini memudahkan fitur Single Sign-On (login sekali, bisa akses semua layanan perusahaan).

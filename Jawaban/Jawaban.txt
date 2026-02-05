@@ -1,0 +1,21 @@
+Experimen 1 
+Catat: Cookie mana yang masih ada?
+sessionTest: [hilang/ada?] ada
+persistentTest: [hilang/ada?] ada
+
+Experimen 2
+Halaman	                    cookieRoot	        cookieAdmin
+/index.html	                    ada	              tidak ada
+/admin/index.html	            ada                ada
+/admin/dashboard/index.html	    ada	               ada
+
+Analisis 
+Cookie dengan Path=/admin akan dikirim ke:
+- /admin ✓ atau ✗?                ✓
+- /admin/dashboard ✓ atau ✗?      ✓
+- /profile ✓ atau ✗?              ✗
+- / ✓ atau ✗?                     ✗
+
+Experimen 3
+Cookie Secure tersimpan di localhost HTTP? Ya (Ya/Tidak)
+Mengapa bisa tersimpan? Krena di localhost, Secure cookie bisa tersimpan karena browser exception. Di production HTTP, cookie akan ditolak - harus pakai HTTPS.
